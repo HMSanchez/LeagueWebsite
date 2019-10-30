@@ -1,0 +1,35 @@
+﻿@using LeagueSite.Models;
+@model LeagueSite.Models.ChampionListModel
+
+@{
+    ViewBag.Title = "Champions";
+}
+
+<h2>Champions</h2>
+
+@foreach (KeyValuePair<string, ChampionModel> champion in Model.data)
+{//Get rid of inline later
+    <div class="champ-div">
+        <a href="/Home/Champion/@champion.Value.id" class="champ-a">@champion.Value.name</a>
+        <p class="title">@champion.Value.title</p>
+        <table class="bio-text">
+            <tr>
+                <th>Attack</th>
+                <th>Defense</th>
+                <th>Magic</th>
+                <th>Difficulty</th>
+            </tr>
+            <tr>
+                @*change these to bars or seomthing not an int*@
+                <td>@champion.Value.info["attack"]</td>
+                <td>@champion.Value.info["defense"]</td>
+                <td>@champion.Value.info["magic"]</td>
+                <td>@champion.Value.info["difficulty"]</td>
+            </tr>
+        </table>
+        @*this probably makes it take a while to load, find async or remove it*@
+        <a href="/Home/Champion/@champion.Value.id">
+            <img class="champ-pic" src="@("http://ddragon.leagueoflegends.com/cdn/7.22.1/img/champion/"+@champion.Value.id+ ".png")" />
+        </a>
+    </div>
+}

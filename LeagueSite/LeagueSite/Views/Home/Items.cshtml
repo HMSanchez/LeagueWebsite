@@ -1,0 +1,61 @@
+﻿@using LeagueSite.Models
+@model LeagueSite.Models.ItemListModel
+
+@{
+    ViewBag.Title = "Items";
+    List<string> stringList = new List<string>();
+}
+
+<h2>Items</h2>
+
+@foreach (KeyValuePair<string, ItemModel> item in Model.data)
+{
+    <div class="item-box">
+        <img src="~/Content/Loading.png" onload="this.onload = null; this.src = 'http://ddragon.leagueoflegends.com/cdn/7.22.1/img/item/'+@item.Key+'.png';" style="float:right" />
+        <span style="font-size:18px">@item.Value.name </span><br />
+        <p class="plaintext-box">
+        @item.Value.plaintext
+        </p>
+        <div class="item-description">
+            @{ 
+                string scrubbed = item.Value.description;
+                //removes all font tags
+                while (scrubbed.Contains("<font"))
+                {
+                    int start = scrubbed.IndexOf("<font");
+                    int end = scrubbed.IndexOf(">", start);
+                    scrubbed=scrubbed.Remove(start, end+1 - start);
+                    if (scrubbed.Contains("</font>"))
+                    {
+                        start = scrubbed.IndexOf("</font>");
+                        scrubbed=scrubbed.Remove(start, 7);
+                    }
+                }
+                //changes a tags into html tags named by what they referenced <a href='energized'> => <energized> as well as following closing tags
+                while (scrubbed.Contains("<a href="))
+                {
+                    int start = scrubbed.IndexOf("<a href=")+1;
+                    scrubbed=scrubbed.Remove(start, 8);
+                    int second = scrubbed.IndexOf("'", start);
+                    string val = scrubbed.Substring(start, second - start);
+                    scrubbed = scrubbed.Remove(second, 1);
+
+                    start = scrubbed.IndexOf("</a>")+2;
+                    scrubbed = scrubbed.Remove(start, 1);
+                    scrubbed = scrubbed.Insert(start, val);
+                    stringList.Add(val);
+                }
+            }
+            @Html.Raw(scrubbed)
+        </div>
+        <br />
+        <span class="cost-box">Cost: @item.Value.gold.Base</span>
+    </div>
+}
+@{ 
+    stringList = stringList.Distinct().ToList();
+}
+@foreach(string s in stringList)
+{
+    <p>@s</p>
+}

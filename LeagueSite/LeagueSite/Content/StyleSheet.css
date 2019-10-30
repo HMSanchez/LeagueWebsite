@@ -1,0 +1,93 @@
+﻿html {
+    background-color: #344C6B;
+    color: #FFF;
+}
+
+body {
+
+}
+
+img {
+    border: 2px solid #E5A134;
+    vertical-align: middle;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.nav {
+    z-index: 100;
+    position: fixed;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #FFF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.putright {
+    float: right;
+}
+
+.champ-pic {
+    
+}
+
+.champ-div {
+    margin: 2px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    border: 1px solid black;
+    position: relative;
+    z-index: 0;
+    border-radius: 4px;
+    background: linear-gradient(#262626, black);
+}
+
+.champ-div img {
+    position: absolute;
+    bottom: 7px;
+    left: 3px;
+    z-index:0;
+}
+
+.champ-a {
+    text-decoration: none;
+    color: gold;
+    margin-left: 7px;
+    font-size: 25px;
+}
+
+.title::first-letter {
+    text-transform: capitalize;
+}
+
+.title {
+    font-size: 22px;
+    margin-left: 135px;
+}
+
+.bio-text {
+    margin-left: 135px;
+}

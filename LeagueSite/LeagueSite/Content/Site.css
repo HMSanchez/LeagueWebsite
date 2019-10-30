@@ -1,0 +1,69 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.item-box{
+    padding:20px;
+    border:1px solid black;
+    margin:4px;
+    background-color: #0c1212;
+    font-family:Calibri;
+    border-radius:10px;
+}
+.item-description {
+    padding: 4px;
+    padding-left:15px;
+}
+.plaintext-box{
+    color:#CEF0EA;
+}
+.cost-box{
+    color:gold;
+}
+
+
+
+stats{
+    color:#90c98f;
+}
+grouplimit {
+    color: #85d186;
+}
+unique{
+    color:#f2d724;
+}
+active {
+    color: #f2d724;
+}
+passive{
+    color: #f2d724;
+}
+energized{
+    text-decoration:underline;
+}
+energized::first-letter{
+    text-transform:capitalize;
+}
+specialjungleexperience{
+    color:blue;
+}

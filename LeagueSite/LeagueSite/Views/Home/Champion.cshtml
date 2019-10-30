@@ -1,0 +1,9 @@
+﻿@model LeagueSite.Models.ChampionModel
+
+@{
+    ViewBag.Title = Model.name;
+}
+<h2>@Model.name</h2>
+<h4>@Model.title</h4>
+<p>@Model.blurb</p>
+<div class="loretextbox">@Html.Raw(Model.lore)</div>
